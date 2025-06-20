@@ -8,6 +8,6 @@
 		aClass="text-[#6C70ED] text-base"
 		spanClass="text-white block text-sm text-center"
 		href="/"
-		by="Flowbite"
+		by="Viam"
 	/>
 </Footer>
