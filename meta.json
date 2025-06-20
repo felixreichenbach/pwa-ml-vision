@@ -1,0 +1,14 @@
+{
+  "$schema": "https://dl.viam.dev/module.schema.json",
+  "module_id": "felix-viam:my-app",
+  "visibility": "public",
+  "url": "https://github.com/felixreichenbach/pwa-app",
+  "description": "My PWA application for Viam",
+  "applications": [
+    {
+      "name": "my-app",
+      "type": "single_machine",
+      "entrypoint": "build/index.html"
+    }
+  ]
+}
