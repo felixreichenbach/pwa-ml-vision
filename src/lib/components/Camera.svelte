@@ -246,23 +246,6 @@
 		margin-top: 10px;
 	}
 
-	.captured-image-preview {
-		margin-top: 20px;
-		text-align: center;
-		border: 1px solid #ddd;
-		padding: 15px;
-		background-color: #fff;
-		border-radius: 8px;
-	}
-
-	.captured-image-preview img {
-		max-width: 100%;
-		height: auto;
-		border: 1px solid #eee;
-		border-radius: 5px;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	}
-
 	.error-message {
 		color: red;
 		font-weight: bold;

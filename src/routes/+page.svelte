@@ -14,6 +14,6 @@
 <Heading
 	tag="h1"
 	class="text-center"
-	>ML Vision with MobileNet images Classifier
+	>MobileNet Image Classifier
 </Heading>
 <Camera />
