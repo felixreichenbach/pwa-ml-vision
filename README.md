@@ -33,3 +33,11 @@ This project presents an image classifier using MobileNet from TensorFlow.js wit
 ## Patching
 
 There is a bug in the Tensorflow JS library. A Viam created patch is available in the `patches` directory which is automaticaly applied whenever `pnpm install` is run.
+
+## Build Module
+
+```bash
+tar -czvf module.tar.gz build meta.json
+
+viam module upload --upload=module.tar.gz --platform=any --version=0.0.2
+```
