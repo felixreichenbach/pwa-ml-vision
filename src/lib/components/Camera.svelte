@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte'; // Import onDestroy for proper stream cleanup
-	import { classify } from './classifier';
+	import { classifyImage } from './classifier';
 
 	// Bindings for DOM elements
 	let videoSource: HTMLVideoElement | null = null;
@@ -115,10 +115,10 @@
 			// Create a new HTMLImageElement
 			const img = new Image();
 			img.src = capturedImage;
-			classify(img)
+			classifyImage(img)
 				.then((result) => {
 					console.log('Classification result:', result);
-					predictions = result; // Update predictions with the classification result
+					//predictions = result; // Update predictions with the classification result
 				})
 				.catch((err) => {
 					console.error('Error classifying image:', err);
