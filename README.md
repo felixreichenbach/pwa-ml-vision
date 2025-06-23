@@ -26,6 +26,10 @@ This project presents an image classifier using MobileNet from TensorFlow.js wit
 
 4. Access the app: Open <http://localhost:5173/> in your browser.
 
+## ML Models
+
+[efficientnet](https://www.kaggle.com/models/tensorflow/efficientnet/tfLite) -> `classifier.model`
+
 ## Patching
 
 There is a bug in the Tensorflow JS library. A Viam created patch is available in the `patches` directory which is automaticaly applied whenever `pnpm install` is run.
