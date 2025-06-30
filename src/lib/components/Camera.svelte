@@ -21,9 +21,18 @@
 		errorMessage = null; // Clear previous errors
 		loading = true;
 		try {
-			const stream = await navigator.mediaDevices.getUserMedia({
-				video: true
-			});
+			let stream: MediaStream;
+			try {
+				// Try to get the environment (back) camera
+				stream = await navigator.mediaDevices.getUserMedia({
+					video: { facingMode: { exact: 'environment' } }
+				});
+			} catch (e) {
+				// Fallback: get any available camera if environment is not found
+				stream = await navigator.mediaDevices.getUserMedia({
+					video: true
+				});
+			}
 			currentStream = stream; // Store the stream for cleanup
 
 			if (videoSource) {
