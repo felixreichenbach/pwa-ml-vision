@@ -114,15 +114,17 @@
 		if (captureImage != null) {
 			// Create a new HTMLImageElement
 			const img = new Image();
+
+			img.onload = () => {
+				classifyImage(img)
+					.then((result) => {
+						predictions = result.classes;
+					})
+					.catch((err) => {
+						console.error('Error classifying image:', err);
+					});
+			};
 			img.src = capturedImage;
-			classifyImage(img)
-				.then((result) => {
-					console.log('Classification result:', result);
-					//predictions = result; // Update predictions with the classification result
-				})
-				.catch((err) => {
-					console.error('Error classifying image:', err);
-				});
 		}
 	}
 
@@ -149,8 +151,6 @@
 </script>
 
 <div class="camera-container">
-	<h1>Camera Capture</h1>
-
 	{#if loading}
 		<p>LOADING CAMERA...</p>
 	{/if}
@@ -179,19 +179,24 @@
 
 	<canvas bind:this={canvasElement}></canvas>
 
-	{#if predictions.length > 0}
-		<div class="predictions">
-			<h3>Predictions:</h3>
-			<ul>
-				{#each predictions as prediction}
-					<li>
-						{prediction.className}: {prediction.probability.toFixed(
-							4
-						)}
-					</li>
-				{/each}
-			</ul>
-		</div>
+	{#if predictions.length}
+		<h1 style="text-align: left; width: 100%; margin: 0 0 0.5em 0;">
+			<b>Predictions</b>
+		</h1>
+		<ul style="width: 100%; list-style: none; padding: 0; margin: 0;">
+			{#each predictions as classification}
+				<li
+					style="display: flex; justify-content: space-between; align-items: center; padding: 0.5em 0; width: 100%;"
+				>
+					<span style="text-align: left;"
+						>{classification.className}</span
+					>
+					<span style="text-align: right;"
+						>{classification.score}</span
+					>
+				</li>
+			{/each}
+		</ul>
 	{/if}
 </div>
 

@@ -7,7 +7,7 @@ let model: tfTask.ICCustomModelTFLite | null = null;
 
 export async function loadClassifier() {
 	model = await tfTask.ImageClassification.CustomModel.TFLite.load({
-		model: 'model/classification.tflite'
+		model: 'model/Volano.tflite'
 	});
 
 	/*
@@ -26,7 +26,7 @@ export async function classifyImage(image: HTMLImageElement) {
 		throw new Error('Model not loaded');
 	}
 	const result = await model.predict(image);
-	console.log(result.classes);
+	//console.log(result.classes);
 
 	return result;
 }

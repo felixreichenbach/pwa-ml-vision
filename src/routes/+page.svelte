@@ -14,6 +14,6 @@
 <Heading
 	tag="h1"
 	class="text-center"
-	>MobileNet Image Classifier
+	>Image Classifier
 </Heading>
 <Camera />
